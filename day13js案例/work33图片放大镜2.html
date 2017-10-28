@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>work33图片放大镜2</title>
+		<style type="text/css">
+			#small{
+				width: 300px;
+				height:300px;
+				border: #000 1px solid;
+				float:left;
+				position: relative;
+			}
+			#small img{
+				width: 300px;
+				height: 300px;
+			}
+			
+			#small span{
+				display: block;
+				width: 120px;
+				height: 120px;
+				background: red;
+				opacity: .5;
+				border: #333 1px solid;
+				position: absolute;
+				left: 0;
+				top: 0;
+				display: none;
+			}
+			
+			#big{
+				width: 300px;
+				height: 300px;
+				border: #000 1px solid;
+				float: left;
+				margin-left: 20px;
+				overflow: hidden;
+				position: relative;
+				display: none;
+			}
+			
+			#big img{
+				position: absolute;
+			}
+
+		</style>
+	</head>
+	<body>
+		<div id="small">
+			<img src="s.jpg" alt=""/>
+			<span id="mask"></span>
+		</div>
+		<div id="big">
+			<img src="b.jpg" alt=""/>
+		</div> 
+	</body>
+	<script type="text/javascript">
+		window.onload=function(){
+			var osmall=document.getElementById("small");
+			var omask=document.getElementById("mask");
+			var obig=document.getElementById("big");
+			
+			osmall.onmouseover=function(){
+				omask.style.display="block";
+				obig.style.display="block";
+			}
+			
+			osmall.onmouseout=function(){
+				omask.style.display="none";
+				obig.style.display="none";
+			}
+			
+			osmall.onmousemove=function(ev){
+				var oevent=ev||event;
+				var l=oevent.clientX-omask.offsetWidth/2;
+				var t=oevent.clientY-omask.offsetHeight/2;
+				omask.style.left=l+'px';
+				omask.style.top=t+'px'
+			}
+		}
+	</script>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>work28事件冒泡1</title>
+		<style type="text/css">
+			#div1{
+				width: 300px;
+				height: 300px;
+			}
+			#div2{
+				width: 200px;
+				height: 200px;
+			}
+			#div3{
+				width: 100px;
+				height: 100px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1" style="background: red;">
+			<div id="div2" style="background: green;">
+				<div id="div3" style="background: yellow;"></div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		window.onload=function(){
+			var odiv1=document.getElementById("div1");
+			var odiv2=document.getElementById("div2");
+			var odiv3=document.getElementById("div3");
+			
+			odiv1.onclick=function(){
+				alert(this.style.background);
+			}
+			
+			odiv2.onclick=function(){
+				alert(this.style.background);
+			}
+			
+			odiv3.onclick=function(){
+				alert(this.style.background);
+			}
+		}
+	</script>
+</html>

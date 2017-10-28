@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>work23模拟下拉菜单2</title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			#box{
+				width: 300px;
+				margin: 100px auto;
+				border: #000 solid 1px;
+			}
+			#box h3{
+				width: 300px;
+				height: 40px;
+				text-align: center;
+				line-height: 40px;
+				border-bottom: #000 solid 1px;
+			}
+			#box ul{
+				display: none;
+			}
+			#box ul li{
+				width: 300px;
+				height: 40px;
+				text-align: center;
+				line-height: 40px;
+				border-bottom: #ccc solid 1px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<h3 id="click">选择</h3>
+			<ul id="ul">
+				<li>北京</li>
+				<li>天津</li>
+				<li>上海</li>
+				<li>河南</li>
+			</ul>
+		</div>
+	</body>
+	<script type="text/javascript">
+		window.onload=function(){
+			var obox=document.getElementById("box");
+			var oh3=obox.children[0];
+			var oul=obox.children[1];
+			
+			var bok=true;  //这是一个自定义的开关
+			oh3.onclick=function(){
+				if(bok==true){
+					oul.style.display="block";	
+				}else{
+					oul.style.display="none";
+				}
+				bok=!bok;
+			}
+			
+			document.onclick=function(){
+				oul.style.display="none";
+			}
+		}
+	</script>
+</html>
